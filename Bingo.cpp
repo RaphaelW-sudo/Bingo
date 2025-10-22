@@ -35,7 +35,7 @@ bool checkforbingo(bool printred[25]){
     for(int i=0;i<5;i++){
         if(printred[i+(6*i)])a[i]=true;
     }
-    
+    return false;
 }
 void printboard(int board[25],int checking[25],bool printred[25]){
     int random;
