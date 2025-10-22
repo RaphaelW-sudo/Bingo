@@ -21,17 +21,38 @@ void createboard(int board[]) {
         board[i]=numbers[i];
     }
 }
-void printboard(int board[25],int checking[25],bool printred[25]){
-    for(int i=0;i<iterate;i++){
-        printred[i]=true;
+bool checkforbingo(bool printred[25]){
+    //vertical
+    for(int i=0;i<5;i++){
+        if(printred[4+i]&&printred[9+i]&&printred[14+i]&&printred[19+i]&&printred[0+i])return true;
     }
+    //horizontal
+    for(int i=0;i<5;i++){
+        if(printred[5*i]&&printred[5*(i+1)]&&printred[5*(i+2)]&&printred[5*(i+3)]&&printred[5*(i+4)])return true;
+    }
+    //diagonally
+    bool a[5];
+    for(int i=0;i<5;i++){
+        if(printred[i+(6*i)])a[i]=true;
+    }
+    
+}
+void printboard(int board[25],int checking[25],bool printred[25]){
+    int random;
+    
+        random =rand()%25;
+        while(printred[random]){
+            random =rand()%25;
+        }
+        printred[random]=true;
+    
     for(int i=0;i<25;i++){
         if((i+1)%5==0 && printred[i]){
             
             cout<<"|"<<board[i]<<"|"<<endl<<endl;
             continue;
         }else if(printred[i]){
-            cout<<"|"<<board[i]<<"| ";
+            cout<<"|"<<board[i]<<"|";
             continue;
         }else if((i+1)%5==0){cout<<board[i]<<endl<<endl;
         continue;}
