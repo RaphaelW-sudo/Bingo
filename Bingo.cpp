@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // for std::shuffle
+#include <algorithm>
 #include <random>
 #include<string>
-using namespace std;// for std::mt19937 and std::random_device
+using namespace std;
 int board[25];
 int checking[25];
 int iterate=0;
 string print;
 void createboard(int board[]) {
-    // Step 1: Initialize the array with values 1 to 25
     std::vector<int> numbers;
     for (int i = 1; i <= 25; ++i) {
         numbers.push_back(i);
@@ -40,4 +39,5 @@ int main() {
     printboard(board,checking);
     
     return 0;
+
 }
